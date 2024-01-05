@@ -38,3 +38,10 @@ body {
   height: 100%;
   object-fit: cover;
 } */
+
+.swiper-pagination-bullet-active.custom-bullet {
+  background-color: #0f5e59;
+  width: 16px;
+  height: 7px;
+  border-radius: 5px;
+}

@@ -17,6 +17,9 @@ export default function Slider() {
       .then((res) => res.json())
       .then((data) => setSlideData(data));
   }, []);
+  const renderCustomBullet = (index, className) => {
+    return `<span class="${className} custom-bullet"></span>`;
+  };
   return (
     <>
       <Swiper
@@ -28,6 +31,7 @@ export default function Slider() {
         }}
         pagination={{
           clickable: true,
+          renderBullet: renderCustomBullet,
         }}
         // navigation={true}
         modules={[Autoplay, Pagination, Navigation]}

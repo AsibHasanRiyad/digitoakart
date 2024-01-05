@@ -42,7 +42,7 @@ const Product = () => {
                 <Carousel
                   showArrows={false}
                   showStatus={false}
-                  dynamicHeight={false}
+                  dynamicHeight={true}
                   showIndicators={false}
                 >
                   <div>
@@ -62,13 +62,7 @@ const Product = () => {
             </div>
 
             {/* Right side part */}
-            <div
-              data-aos="fade-left"
-              data-aos-offset="200"
-              data-aos-easing="ease-in-sine"
-              data-aos-duration="600"
-              className="w-full px-4 md:w-1/2 "
-            >
+            <div className="w-full px-4 md:w-1/2 ">
               <div>
                 <div>
                   <h1 className=" text-[#0F5E59] text-2xl font-semibold">
@@ -86,15 +80,15 @@ const Product = () => {
                   </h1>
                   {/* model */}
 
-                  <div className=" flex gap-20 items-center">
-                    <p className=" text-lg"> Model:</p>
+                  <div className=" flex gap-6 md:gap-10 lg:gap-20 items-center">
+                    <p className=" text-sm lg:text-lg"> Model:</p>
                     <div className=" flex gap-2">
                       {models?.map((model, index) => (
                         <button
                           onClick={() => handelModel(model)}
-                          className={`px-6 py-2.5 border border-gray-700 ${
+                          className={` px-3 lg:px-6 py-1 lg:py-2.5 border border-gray-700 ${
                             model === selectedModel &&
-                            "bg-[#0D9488] border-none text-white"
+                            "bg-[#0D9488] border-none text-white text-sm lg:text-base "
                           } `}
                           key={index}
                         >
@@ -106,14 +100,14 @@ const Product = () => {
                 </div>
 
                 {/* select  color */}
-                <div className=" flex gap-20 items-center py-5">
+                <div className=" flex gap-6 md:gap-10 lg:gap-20 items-center py-5">
                   <p className=" text-lg"> Color:</p>
                   <div className=" flex gap-2">
                     {colors?.map((color, index) => (
                       <button
                         onClick={() => handelColor(color)}
                         style={{ background: color }}
-                        className=" h-12 w-12 rounded-full"
+                        className=" h-8 lg:h-12 w-8 lg:w-12 rounded-full"
                         key={index}
                       >
                         {color === selectedColor && (
@@ -128,13 +122,13 @@ const Product = () => {
                 </div>
 
                 {/* select storage */}
-                <div className=" flex gap-16 items-center">
+                <div className=" flex gap-5 md:gap-8 lg:gap-16 items-center">
                   <p className=" text-lg"> Storage:</p>
                   <div className=" flex gap-2">
                     {storages?.map((storage, index) => (
                       <button
                         onClick={() => handelStorage(storage)}
-                        className={`px-6 py-2.5 border border-gray-700 ${
+                        className={`px-3 lg:px-6 py-1 lg:py-2.5 border border-gray-700 ${
                           storage === selectedStorage &&
                           "bg-[#0D9488] border-none text-white"
                         } `}
@@ -152,7 +146,7 @@ const Product = () => {
                 <p className=" text-lg">Date of Birth:</p>
                 <div>
                   <input
-                    className="px-3 py-3 border border-gray-700 "
+                    className="px-3 lg:px-6 py-1 lg:py-2.5 border border-gray-700 "
                     type="date"
                   />
                 </div>
