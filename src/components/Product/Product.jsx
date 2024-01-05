@@ -3,12 +3,15 @@ import { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { GiCheckMark } from "react-icons/gi";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Product = () => {
   const colors = ["#301933", "#205E7C", "#A50011", "#F9E5C9", "#5C5B56"];
   const models = ["Iphone 14", "Iphone 14 Pro Max"];
+  const storages = ["128GB", "256GB", "512GB"];
   const [selectedColor, setSelectedColor] = useState();
   const [selectedModel, setSelectedModel] = useState();
+  const [selectedStorage, setSelectedStorage] = useState();
 
   // Select color
   const handelColor = (color) => {
@@ -17,6 +20,10 @@ const Product = () => {
   //select model
   const handelModel = (model) => {
     setSelectedModel(model);
+  };
+  //select model
+  const handelStorage = (storage) => {
+    setSelectedStorage(storage);
   };
   return (
     <div>
@@ -36,18 +43,19 @@ const Product = () => {
                   showArrows={false}
                   showStatus={false}
                   dynamicHeight={false}
+                  showIndicators={false}
                 >
                   <div>
-                    <img src="https://i.ibb.co/VWRzgRg/i-Phone-14-Pro-Space-Black-1138.jpg" />
+                    <img src="https://i.ibb.co/dcLQR7F/i-Phone-14-Pro-Space-Black-1138.jpg" />
                   </div>
                   <div>
-                    <img src="https://i.ibb.co/ng848bL/i-Phone-14-Pro-Silver-1035.jpg" />
+                    <img src="https://i.ibb.co/377qnxT/i-Phone-14-Pro-Silver-1035.jpg" />
                   </div>
                   <div>
-                    <img src="https://i.ibb.co/Dz55gnW/i-Phone-14-Pro-Gold-7135.jpg" />
+                    <img src="https://i.ibb.co/3ypf1wQ/i-Phone-14-Pro-Gold-7135.jpg" />
                   </div>
                   <div>
-                    <img src="https://i.ibb.co/9GdcMy2/i-Phone-14-Pro-Deep-Purple-7300.jpg" />
+                    <img src="https://i.ibb.co/BqcLqck/i-Phone-14-Pro-Deep-Purple-7300.jpg" />
                   </div>
                 </Carousel>
               </div>
@@ -78,7 +86,7 @@ const Product = () => {
                   </h1>
                   {/* model */}
 
-                  <div className=" flex gap-16 items-center">
+                  <div className=" flex gap-20 items-center">
                     <p className=" text-lg"> Model:</p>
                     <div className=" flex gap-2">
                       {models?.map((model, index) => (
@@ -97,8 +105,8 @@ const Product = () => {
                   </div>
                 </div>
 
-                {/* color */}
-                <div className=" flex gap-16 items-center py-5">
+                {/* select  color */}
+                <div className=" flex gap-20 items-center py-5">
                   <p className=" text-lg"> Color:</p>
                   <div className=" flex gap-2">
                     {colors?.map((color, index) => (
@@ -119,33 +127,50 @@ const Product = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center ">
-                  <div className="mb-4 mr-4 lg:mb-0">
-                    <button className="text-white w-fit bg-slate-800 flex justify-center items-center gap-2 cursor-pointer hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-3 py-2.5 text-center  hover:scale-110 transition duration-500 ease-out">
-                      Add To Cart
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-6 h-6"
+                {/* select storage */}
+                <div className=" flex gap-16 items-center">
+                  <p className=" text-lg"> Storage:</p>
+                  <div className=" flex gap-2">
+                    {storages?.map((storage, index) => (
+                      <button
+                        onClick={() => handelStorage(storage)}
+                        className={`px-6 py-2.5 border border-gray-700 ${
+                          storage === selectedStorage &&
+                          "bg-[#0D9488] border-none text-white"
+                        } `}
+                        key={index}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-                        />
-                      </svg>
-                    </button>
+                        {storage}
+                      </button>
+                    ))}
                   </div>
                 </div>
+              </div>
+
+              {/* date of birth */}
+              <div className=" flex gap-7 items-center py-5">
+                <p className=" text-lg">Date of Birth:</p>
+                <div>
+                  <input
+                    className="px-3 py-3 border border-gray-700 "
+                    type="date"
+                  />
+                </div>
+              </div>
+
+              {/* Add to cart */}
+              <div className=" my-7">
+                <button className=" w-full py-2.5 bg-[#0D9488] text-white text-lg flex items-center gap-2 justify-center font-semibold">
+                  Next
+                  <FaArrowRightLong />
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 
